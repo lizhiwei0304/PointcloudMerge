@@ -1,0 +1,10 @@
+<launch>
+  <rosparam file="$(find point_cloud_merger)/config/parameters.yaml" command="load" />
+  <node pkg="point_cloud_merger" type="point_cloud_merger_node" name="point_cloud_merger">
+    <remap from="/point_cloud_merger/pcld0" to="/rslidar_points_front" />
+    <remap from="/point_cloud_merger/pcld1" to="/rslidar_points_left" />
+    <remap from="/point_cloud_merger/pcld2" to="/rslidar_points_right" />
+    <!-- 输出点云 remap -->
+    <remap from="/point_cloud_merger/combined_point_cloud" to="/pointcloud" />
+  </node>
+</launch>
